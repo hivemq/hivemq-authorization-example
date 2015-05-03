@@ -1,0 +1,3 @@
+== HiveMQ Authorization Example Plugin
+
+This is an example plugin that show how you can easily implement custom authorization with HiveMQ.
