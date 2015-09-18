@@ -16,18 +16,19 @@
 
 package com.hivemq.authorization.example.callbacks;
 
-import com.dcsquare.hivemq.spi.aop.cache.Cached;
-import com.dcsquare.hivemq.spi.callback.CallbackPriority;
-import com.dcsquare.hivemq.spi.callback.security.OnAuthorizationCallback;
-import com.dcsquare.hivemq.spi.security.ClientData;
-import com.dcsquare.hivemq.spi.topic.MqttTopicPermission;
+import com.hivemq.spi.aop.cache.Cached;
+import com.hivemq.spi.callback.CallbackPriority;
+import com.hivemq.spi.callback.security.OnAuthorizationCallback;
+import com.hivemq.spi.callback.security.authorization.AuthorizationBehaviour;
+import com.hivemq.spi.security.ClientData;
+import com.hivemq.spi.topic.MqttTopicPermission;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Christian Götz
+ * @author Florian Limpöck
  */
 public class AuthorizationCallback implements OnAuthorizationCallback {
 
@@ -43,14 +44,20 @@ public class AuthorizationCallback implements OnAuthorizationCallback {
     @Override
     @Cached(timeToLive = 5, timeUnit = TimeUnit.MINUTES)
     public List<MqttTopicPermission> getPermissionsForClient(ClientData clientData) {
-        ArrayList<MqttTopicPermission> mqttTopicPermissions = new ArrayList<MqttTopicPermission>();
+        ArrayList<MqttTopicPermission> mqttTopicPermissions = new ArrayList<>();
         mqttTopicPermissions.add(
                 new MqttTopicPermission(
                         clientData.getClientId() + "/#",            // Topic
-                        MqttTopicPermission.ALLOWED_QOS.ALL,        // QoS
-                        MqttTopicPermission.ALLOWED_ACTIVITY.ALL)); // Publish, Subscribe, All
+                        MqttTopicPermission.TYPE.ALLOW,        // Type
+                        MqttTopicPermission.QOS.ALL,        // QoS
+                        MqttTopicPermission.ACTIVITY.ALL)); // Publish, Subscribe, All
 
         return mqttTopicPermissions;
+    }
+
+    @Override
+    public AuthorizationBehaviour getDefaultBehaviour() {
+        return AuthorizationBehaviour.NEXT;
     }
 
     @Override

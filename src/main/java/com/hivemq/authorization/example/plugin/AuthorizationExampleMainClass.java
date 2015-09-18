@@ -16,8 +16,8 @@
 
 package com.hivemq.authorization.example.plugin;
 
-import com.dcsquare.hivemq.spi.PluginEntryPoint;
-import com.dcsquare.hivemq.spi.callback.registry.CallbackRegistry;
+import com.hivemq.spi.PluginEntryPoint;
+import com.hivemq.spi.callback.registry.CallbackRegistry;
 import com.hivemq.authorization.example.callbacks.AuthorizationCallback;
 
 import javax.annotation.PostConstruct;
@@ -25,6 +25,7 @@ import javax.inject.Inject;
 
 /**
  * This is the main class of the plugin, which is instanciated during the HiveMQ start up process.
+ * @author Florian Limpöck
  */
 public class AuthorizationExampleMainClass extends PluginEntryPoint {
 
