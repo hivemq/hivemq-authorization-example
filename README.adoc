@@ -2,4 +2,4 @@
 
 This is an example plugin that show how you can easily implement custom authorization with HiveMQ.
 
-More detailed information about authorization in MQTT and an explaination of this example can be found in the recently released blog post: link:http://www.hivemq.com/mqtt-security-fundamentals-authorization/[MQTT Security Fundamentals - Authorization]
+More detailed information about authorization in MQTT and an explanation of this example can be found in the recently released blog post: link:http://www.hivemq.com/mqtt-security-fundamentals-authorization/[MQTT Security Fundamentals - Authorization]
