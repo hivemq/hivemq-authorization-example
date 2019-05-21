@@ -3,3 +3,11 @@
 This is an example plugin that show how you can easily implement custom authorization with HiveMQ.
 
 More detailed information about authorization in MQTT and an explaination of this example can be found in the recently released blog post: link:http://www.hivemq.com/mqtt-security-fundamentals-authorization/[MQTT Security Fundamentals - Authorization]
+
+= Contributing
+
+If you want to contribute to HiveMQ Authorization Example, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ Authorization Example is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE.txt[here].
